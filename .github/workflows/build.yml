@@ -1,20 +1,22 @@
-name: Build Kernel
+name: Kernel Multi-Arch CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  build-i386:
+    name: Build i386
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar o código
+      - name: Baixar codigo
         uses: actions/checkout@v4
 
-      - name: Instalar dependências
+      - name: Instalar dependencias
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -27,12 +29,36 @@ jobs:
             xorriso \
             mtools
 
-      - name: Rodar make all
+      - name: Compilar i386
         run: make all
 
-      - name: Guardar ISO do Kernel
+      - name: Guardar Artefato i386
         uses: actions/upload-artifact@v4
         with:
-          name: vmicaro-iso
-          path: vmicaro.iso
+          name: kernel-i386
+          path: |
+            *.iso
+            vmicaro.iso
+
+  build-xtensa:
+    name: Build Xtensa
+    runs-on: ubuntu-latest
+    container: espressif/idf:v5.1
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Compilar Xtensa
+        run: |
+          . $IDF_PATH/export.sh
+          make -C arch/Xtensa
+
+      - name: Guardar Artefato Xtensa
+        uses: actions/upload-artifact@v4
+        with:
+          name: kernel-xtensa
+          path: |
+            arch/Xtensa/*.elf
+            arch/Xtensa/*.bin
 
