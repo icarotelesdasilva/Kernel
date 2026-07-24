@@ -15,7 +15,8 @@ OBJ = arch/i386/boot/boot.o \
 	arch/i386/cpu/idt_load.o \
 	arch/i386/interrupts/interrupt.o \
 	arch/i386/interrupts/interrupt_asm.o \
-	arch/i386/boot/multiboot.o \
+arch/i386/pmm/pmm.o \
+arch/i386/boot/multiboot.o \
 	arch/i386/kernel/kernel.o
 
 %.o: %.c
