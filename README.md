@@ -7,7 +7,7 @@ See the [LICENSE](LICENSE) file for more details.
 Kernel](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml/badge.svg)](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml)
 
 Welcome to my hobby kernel, a place where this repository works liberally, that is, everything that is here works is being updated constantly, where
-Visit my website using Replit! [hobby-kernel-hub--kalilinuxicr.replit.app](/url?sa=i&source=web&rct=j&url=https://hobby-kernel-hub--kalilinuxicr.replit.app&ved=2ahUKEwjiw4PRyOyVAxXNqZUCHVnqAEIQg5wRegYIAAgIEAU&opi=89978449&cd&psig=AOvVaw3QUFXqmeC2vRoW3bDT4A5u&ust=1785025586077000)
+Visit my website using Replit! [hobby-kernel-hub](https://hobby-kernel-hub--kalilinuxicr.replit.app)kalilinuxicr.replit.app&ved=2ahUKEwjiw4PRyOyVAxXNqZUCHVnqAEIQg5wRegYIAAgIEAU&opi=89978449&cd&psig=AOvVaw3QUFXqmeC2vRoW3bDT4A5u&ust=1785025586077000)
 I put my skills into practice, current structure of the project:
 
 ```
