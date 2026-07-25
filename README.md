@@ -10,51 +10,68 @@ Welcome to my hobby kernel, a place where this repository works liberally, that 
 I put my skills into practice, current structure of the project:
 
 ```
-├── arch
+├
+── arch
 
-│   └── i386
+│   ├── i386
 
-│       ├── boot
+│   │   ├── boot
 
-│       │   └── boot.asm
+│   │   │   ├── boot.asm
 
-│       ├── cpu
+│   │   │   ├── multiboot.c
 
-│       │   ├── gdt.asm
+│   │   │   └── multiboot.h
 
-│       │   ├── gdt.c
+│   │   ├── cpu
 
-│       │   ├── idt.asm
+│   │   │   ├── gdt.asm
 
-│       │   ├── idt.c
+│   │   │   ├── gdt.c
 
-│       │   └── pic.c
+│   │   │   ├── gdt_flush.s
 
-│       ├── drivers
+│   │   │   ├── idt.asm
 
-│       │   ├── kernel_panic.c
+│   │   │   ├── idt.c
 
-│       │   └── vga.c
+│   │   │   └── idt.h
+
+│   │   ├── drivers
+
+│   │   │   ├── kernel_panic.c
+
+│   │   │   └── vga.c
+
+│   │   ├── interrupts
+
+│   │   │   ├── interrupt.asm
+
+│   │   │   ├── interrupt.c
+
+│   │   │   └── interrupt.h
+
+│   │   ├── kernel
+
+│   │   │   └── kernel.c
+
+│   │   ├── linker.ld
+
+│   │   └── mm
+
+│   └── Xtensa
 
 │       ├── linker.ld
 
-│       └── mm
-│           └── pmm.c
+│       ├── makefile
+
+│       └── start.S
 
 ├── grub
+
 │   └── grub.cfg
 
 ├── include
-
-│   ├── gdt.h
-
-│   ├── idt.h
-
-│   └── pic.h
-
-├── kernel
-
-│   └── kernel.c
 
 ├── LICENSE
 
@@ -62,17 +79,7 @@ I put my skills into practice, current structure of the project:
 
 ├── map.md
 
-├── README.md
-
-└── test
-
-    └── keyboard
-
-        ├── keyboard.asm
-
-        ├── keyboard.c
-
-        └── keyboard.h
+└── README.md
 ```
 
  
