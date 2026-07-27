@@ -90,5 +90,5 @@ Start in QEMU and generate logs: ```make dev```
 
 # Requisitos:
 
-Have a 32-bit or 64-bit Linux system and a virtual machine like QEMU.
+Have a 32-bit or 64-bit Linux system and a virtual machine like QEMU, gcc nasm.
  
