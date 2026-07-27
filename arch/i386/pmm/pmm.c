@@ -1,5 +1,6 @@
 #include "pmm.h"
 #include "../boot/multiboot.h"
+#include <stdint.h>
 #define MAX_MEM_BYTES (128 * 1024 * 1024) 
 #define TOTAL_BLOCKS (MAX_MEM_BYTES / PAGE_SIZE)
 
@@ -25,7 +26,7 @@ void pmm_init(uint32_t mb_addr) {
     multiboot_memory_map_t *mmap = (multiboot_memory_map_t *)mb->mmap_addr;
     uint32_t mmap_end = mb->mmap_addr + mb->mmap_length;
 
-    while ((uint32_t)mmap < mmap_end) {
+    while ((uintptr_t)mmap < mmap_end) {
         if (mmap->type == MULTIBOOT_MEMORY_AVAILABLE) {
             uintptr_t start_block = (uint32_t)mmap->addr / PAGE_SIZE;
             uintptr_t block_count = (uint32_t)mmap->len / PAGE_SIZE;
