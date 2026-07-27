@@ -6,9 +6,7 @@ See the [LICENSE](LICENSE) file for more details.
 [![Build
 Kernel](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml/badge.svg)](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml)
 
-Welcome to my hobby kernel, a place where this repository works liberally, that is, everything that is here works is being updated constantly, where
-I put my skills into practice, current structure of the project:
-
+Welcome to my kernel project; this is where I publish changes to my kernel. Here is the current project structure:
 ```
 ├
 ── arch
