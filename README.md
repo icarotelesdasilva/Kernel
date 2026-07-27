@@ -18,7 +18,7 @@ make run
 
 Run in QEMU & generate logs:
 
-make dev```
+make dev```bash
 
 
 ## Requirements
