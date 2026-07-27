@@ -1,92 +1,31 @@
+# Hobby Kernel
+
+A hobby operating system kernel built entirely from scratch by hand. Originally targeted for i386 architecture, it now features initial minimal support for Xtensa. Check out the [map.md](map.md) file for a complete overview of the project's structure.
+
+[![Build Kernel](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml/badge.svg)](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml)
+
+
+
+## Compilation & Execution
+
+* **How to compile:** 
+  ```bash
+  make clean && make all
+
+Start the ISO:
+make run
+
+Run in QEMU & generate logs:
+
+make dev
+
+
+## Requirements
+A Linux-based system (or a virtual machine running Linux) with the following tools installed:
+ GCC (GNU Compiler Collection)
+ NASM (Netwide Assembler)
+ QEMU & Make
 
 ## License
-This project is protected under the **MIT License**. 
-See the [LICENSE](LICENSE) file for more details.
+This project is protected under the MIT License. See the LICENSE file for more details.
 
-[![Build
-Kernel](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml/badge.svg)](https://github.com/icarotelesdasilva/kernel/actions/workflows/build.yml)
-
-Welcome to my kernel project; this is where I publish changes to my kernel. Here is the current project structure:
-```
-├
-── arch
-
-│   ├── i386
-
-│   │   ├── boot
-
-│   │   │   ├── boot.asm
-
-│   │   │   ├── multiboot.c
-
-│   │   │   └── multiboot.h
-
-│   │   ├── cpu
-
-│   │   │   ├── gdt.asm
-
-│   │   │   ├── gdt.c
-
-│   │   │   ├── gdt_flush.s
-
-│   │   │   ├── idt.asm
-
-│   │   │   ├── idt.c
-
-│   │   │   └── idt.h
-
-│   │   ├── drivers
-
-│   │   │   ├── kernel_panic.c
-
-│   │   │   └── vga.c
-
-│   │   ├── interrupts
-
-│   │   │   ├── interrupt.asm
-
-│   │   │   ├── interrupt.c
-
-│   │   │   └── interrupt.h
-
-│   │   ├── kernel
-
-│   │   │   └── kernel.c
-
-│   │   ├── linker.ld
-
-│   │   └── mm
-
-│   └── Xtensa
-
-│       ├── linker.ld
-
-│       ├── makefile
-
-│       └── start.S
-
-├── grub
-
-│   └── grub.cfg
-
-├── include
-
-├── LICENSE
-
-├── makefile
-
-├── map.md
-
-└── README.md
-```
-
- how to compile: ```make clean && make all```
-
-If you want to start the ISO: ```make run```
-
-Start in QEMU and generate logs: ```make dev```
-
-# REQUIREMENTS:
-
-Have a Linux system—or at least GCC and NASM installed—on any virtual machine, such as QEMU or VirtualBox.
- 
