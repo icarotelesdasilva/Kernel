@@ -86,7 +86,7 @@ If you want to start the ISO: ```make run```
 
 Start in QEMU and generate logs: ```make dev```
 
-# Requisitos:
+# REQUIREMENTS:
 
-Have a 32-bit or 64-bit Linux system and a virtual machine like QEMU, gcc nasm.
+Have a Linux system—or at least GCC and NASM installed—on any virtual machine, such as QEMU or VirtualBox.
  
