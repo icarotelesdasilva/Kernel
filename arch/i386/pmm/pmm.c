@@ -27,8 +27,8 @@ void pmm_init(uint32_t mb_addr) {
 
     while ((uint32_t)mmap < mmap_end) {
         if (mmap->type == MULTIBOOT_MEMORY_AVAILABLE) {
-            uint32_t start_block = (uint32_t)mmap->addr / PAGE_SIZE;
-            uint32_t block_count = (uint32_t)mmap->len / PAGE_SIZE;
+            uintptr_t start_block = (uint32_t)mmap->addr / PAGE_SIZE;
+            uintptr_t block_count = (uint32_t)mmap->len / PAGE_SIZE;
 
             for (uint32_t i = 0; i < block_count; i++) {
                 if ((start_block + i) < TOTAL_BLOCKS) {
