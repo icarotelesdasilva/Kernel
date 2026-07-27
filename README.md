@@ -11,13 +11,14 @@ A hobby operating system kernel built entirely from scratch by hand. Originally 
 * **How to compile:** 
   ```bash
   make clean && make all
-
+ ```bash
 Start the ISO:
+ 
 make run
 
 Run in QEMU & generate logs:
 
-make dev
+make dev```
 
 
 ## Requirements
