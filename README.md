@@ -82,5 +82,13 @@ I put my skills into practice, current structure of the project:
 └── README.md
 ```
 
- 
+ how to compile: ```make clean && make all```
+
+If you want to start the ISO: ```make run```
+
+Start in QEMU and generate logs: ```make dev```
+
+# Requisitos:
+
+Have a 32-bit or 64-bit Linux system and a virtual machine like QEMU.
  
