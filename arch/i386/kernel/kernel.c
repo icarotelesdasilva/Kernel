@@ -31,7 +31,8 @@ void kmain(uint32_t magic, uint32_t mb_addr) {
 
     vga_print("\n[ok] multiboot detectado");
     multiboot_init(mb_addr);
-    pmm_init(mb_addr);
+vga_print("\n[ok] ligando pmm");   
+ pmm_init(mb_addr);
 
     void *ptr1 = pmm_alloc_block();
     void *ptr2 = pmm_alloc_block();
