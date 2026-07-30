@@ -1,4 +1,4 @@
-; Kernel-Ícaro (vmicaro)
+; Kernel 
 ; Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
 
  bits 32
