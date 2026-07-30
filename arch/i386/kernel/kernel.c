@@ -1,8 +1,10 @@
 #include "../pmm/pmm.h"
 #include "../boot/multiboot.h"
-
-
+#include "../interrupts/io.h"
+#include "../interrupts/pic.h"
 void init_gdt(void);
+extern void pic_remap(uint8_t offset1, uint8_t offset2);
+
 extern void kernel_panic(char *str);
 extern void vga_print(const char* str);
 extern void idt_install(void);
@@ -25,23 +27,28 @@ void kmain(uint32_t magic, uint32_t mb_addr) {
 
     init_gdt();
     vga_print("\n[ok] gdt iniciada");
-
+    
     idt_install();
     vga_print("\n[ok] idt iniciada.");
-
+    
     vga_print("\n[ok] multiboot detectado");
     multiboot_init(mb_addr);
-vga_print("\n[ok] ligando pmm");   
- pmm_init(mb_addr);
 
-    void *ptr1 = pmm_alloc_block();
-    void *ptr2 = pmm_alloc_block();
-    
-    vga_print("\n Hello, Kernel!");
+    vga_print("\nligando pmm");
 
-    pmm_free_block(ptr1);
+    pmm_init(mb_addr);
 
-    while (1) {
-        asm volatile("hlt");
-    }
+    pic_remap(0x20, 0x28);
+
+    vga_print("\nHello, Kernel!");
+
+
+while(1) {
+
+ asm volatile("hlt");
+
 }
+
+}
+
+
