@@ -1,4 +1,3 @@
-; Copyright 2026 Icaro Teles da Silva Ribeiro @icarotelesdasilva
 
 
 .global _start
