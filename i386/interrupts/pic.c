@@ -18,11 +18,3 @@ void pic_remap(uint8_t offset1, uint8_t offset2) {
     outb(0x21, 0x00);
     outb(0xA1, 0x00);
 }
-
-void pic_send_eoi(uint8_t irq) {
-    if (irq >= 8) {
-        outb(0xA0, 0x20);
-    }
-    outb(0x20, 0x20);
-
-}
