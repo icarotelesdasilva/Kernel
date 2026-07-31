@@ -1,5 +1,6 @@
-├
-── arch
+.
+
+├── arch
 
 │   ├── i386
 
@@ -37,7 +38,13 @@
 
 │   │   │   ├── interrupt.c
 
-│   │   │   └── interrupt.h
+│   │   │   ├── interrupt.h
+
+│   │   │   ├── io.h
+
+│   │   │   ├── pic.c
+
+│   │   │   └── pic.h
 
 │   │   ├── kernel
 
@@ -45,12 +52,15 @@
 
 │   │   ├── linker.ld
 
-│   │   └── mm
+│   │   └── pmm
+
+│   │       ├── pmm.c
+
+│   │       └── pmm.h
 
 │   └── Xtensa
 
 │       ├── linker.ld
-
 │       ├── makefile
 
 │       └── start.S
@@ -59,8 +69,6 @@
 
 │   └── grub.cfg
 
-├── include
-
 ├── LICENSE
 
 ├── makefile
@@ -68,3 +76,5 @@
 ├── map.md
 
 └── README.md
+
+11 directories, 29 files

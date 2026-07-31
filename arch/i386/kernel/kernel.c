@@ -41,9 +41,9 @@ vga_print("\n[ok] pmm ligado");
 vga_print("\n[ok] ligando pic");
     
 pic_remap(0x20, 0x28);
-vga_print("\npic ligado");
+vga_print("\n[ok] pic ligado");
 
-    vga_print("\n\n\nHello, Kernel!");
+    vga_print("\n\nHello, Kernel!");
 
 
 while(1) {
