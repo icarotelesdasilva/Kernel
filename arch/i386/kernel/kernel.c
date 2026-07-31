@@ -37,10 +37,13 @@ void kmain(uint32_t magic, uint32_t mb_addr) {
     vga_print("\nligando pmm");
 
     pmm_init(mb_addr);
+vga_print("\n[ok] pmm ligado");
+vga_print("\n[ok] ligando pic");
+    
+pic_remap(0x20, 0x28);
+vga_print("\npic ligado");
 
-    pic_remap(0x20, 0x28);
-
-    vga_print("\nHello, Kernel!");
+    vga_print("\n\n\nHello, Kernel!");
 
 
 while(1) {
