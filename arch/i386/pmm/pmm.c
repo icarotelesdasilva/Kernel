@@ -22,25 +22,31 @@ void pmm_init(uintptr_t mb_addr) {
     }
 
     multiboot_info_t *mb = (multiboot_info_t *)mb_addr;
-    if (!(mb->flags & MULTIBOOT_FLAG_MMAP)) kernel_panic("Kernel Panic! error for pmm.");
+    if (mb == NULL || !(mb->flags & MULTIBOOT_FLAG_MMAP)) {
+        kernel_panic("Kernel Panic! error for pmm.");
+    }
 
-    return;
-
-    multiboot_memory_map_t *mmap = (multiboot_memory_map_t *)mb->mmap_addr;
-    uintptr_t mmap_end = mb->mmap_addr + mb->mmap_length;
+    multiboot_memory_map_t *mmap = (multiboot_memory_map_t *)(uintptr_t)mb->mmap_addr;
+    uintptr_t mmap_end = (uintptr_t)mb->mmap_addr + mb->mmap_length;
 
     while ((uintptr_t)mmap < mmap_end) {
+        if (mmap->size == 0) {
+            break;
+        }
+
         if (mmap->type == MULTIBOOT_MEMORY_AVAILABLE) {
-            uintptr_t start_block = (uintptr_t) mmap->addr / PAGE_SIZE;
+            uintptr_t start_block = (uintptr_t)mmap->addr / PAGE_SIZE;
             uintptr_t block_count = (uintptr_t)mmap->len / PAGE_SIZE;
 
-            for (uint32_t i = 0; i < block_count; i++) {
-                if ((start_block + i) < TOTAL_BLOCKS) {
-                    clear_bit(start_block + i);
+            for (uintptr_t i = 0; i < block_count; i++) {
+                uintptr_t block = start_block + i;
+                if (block < TOTAL_BLOCKS) {
+                    clear_bit((uint32_t)block);
                 }
             }
         }
-        mmap = (multiboot_memory_map_t *)((uintptr_t)mmap + mmap->size + sizeof(mmap->size));
+
+        mmap = (multiboot_memory_map_t *)((uintptr_t)mmap + mmap->size);
     }
 
     for (uint32_t b = 0; b < (1024 * 1024 / PAGE_SIZE); b++) {
