@@ -19,3 +19,4 @@ start.o
 multiboot.o
 io.o
 interrupt_asm.o
+handler-irq0.o
