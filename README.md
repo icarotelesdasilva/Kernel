@@ -24,5 +24,5 @@ A Linux-based system (or a virtual machine running Linux) with:
 License
 -------
 
-This project is protected under the MIT License. See the LICENSE file for more details.
+This project is protected by the MIT License.
 
