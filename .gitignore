@@ -18,3 +18,4 @@ vmicaro_xtensa.elf
 start.o
 multiboot.o
 io.o
+interrupt_asm.o
