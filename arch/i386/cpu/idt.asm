@@ -4,12 +4,12 @@ global irq0_handler_stub
 extern irq0_handler 
 
 irq0_handler_stub:
-pushad
-call irq0_handler
-popad
-iret
+PUSHAD
+CALL irq0_handler
+POPAD
+IRET
 
 section .text
 idt_load:
     lidt [idtp]
-    ret
+    RET
