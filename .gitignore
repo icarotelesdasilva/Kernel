@@ -16,3 +16,4 @@ logs_completos.txt
 kernel_xtensa.bin
 vmicaro_xtensa.elf
 start.o
+multiboot.o
