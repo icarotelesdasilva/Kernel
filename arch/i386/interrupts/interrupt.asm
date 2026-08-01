@@ -9,35 +9,35 @@ section .text
 %macro ISR_NOERRCODE 1
   global isr%1
   isr%1:
-    cli          
-    push dword 0 
-    push dword %1
-    jmp isr_common_stub
+    CLI          
+    PUSH dword 0 
+    PUSH dword %1
+    JMP isr_common_stub
 %endmacro
 
 ISR_NOERRCODE 0
 
 isr_common_stub:
-    pusha        
+    PUSHA        
 
-    mov ax, ds          
-    push eax
+    MOV ax, ds          
+    PUSH eax
 
-    mov ax, 0x10        
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
+    MOV ax, 0x10        
+    MOV ds, ax
+    MOV es, ax
+    MOV fs, ax
+    MOV gs, ax
 
-    call isr_handler    
+    CALL isr_handler    
 
-    pop eax             
-    mov ds, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
+    POP eax             
+    MOV ds, ax
+    MOV es, ax
+    MOV fs, ax
+    MOV gs, ax
 
-    popa                
+    POPA                
     add esp, 8          
-    sti  
-iret
+    STI  
+IRET
