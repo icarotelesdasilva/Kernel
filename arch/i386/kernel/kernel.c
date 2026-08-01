@@ -22,7 +22,7 @@ extern void idt_install(void);
 
 void kmain(uint32_t magic, uint32_t mb_addr) {
     if (magic != 0x2BADB002) {
-        kernel_panic("magic nao foi carregado pelo fato de estar errado");
+        kernel_panic("I couldn't load Magic.");
         return;
     }
 
