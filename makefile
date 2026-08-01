@@ -9,6 +9,7 @@ CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic -Iinclude
 OBJ = arch/i386/boot/boot.o \
 	arch/i386/drivers/vga.o \
 	arch/i386/drivers/kernel_panic.o \
+	arch/i386/drivers/serial.o \
 	arch/i386/cpu/gdt.o \
 	arch/i386/cpu/gdt_flush.o \
 	arch/i386/cpu/idt.o \
@@ -34,6 +35,9 @@ arch/i386/cpu/gdt_flush.o: arch/i386/cpu/gdt_flush.s
 	$(ASM) -f elf32 $< -o $@
 
 arch/i386/cpu/idt_load.o: arch/i386/cpu/idt.asm
+	$(ASM) -f elf32 $< -o $@
+
+arch/i386/drivers/serial.o: arch/i386/drivers/serial.asm
 	$(ASM) -f elf32 $< -o $@
 
 vmicaro: $(OBJ)
