@@ -17,3 +17,4 @@ kernel_xtensa.bin
 vmicaro_xtensa.elf
 start.o
 multiboot.o
+io.o
