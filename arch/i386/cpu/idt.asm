@@ -13,3 +13,6 @@ section .text
 idt_load:
     lidt [idtp]
     RET
+
+section .note.GNU-stack noalloc noexec nowrite progbits
+
