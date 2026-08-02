@@ -42,4 +42,4 @@ isr_common_stub:
     STI  
 IRET
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+
