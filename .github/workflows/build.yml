@@ -1,4 +1,4 @@
-name: Kernel Multi-Arch CI
+Name: Kernel Multi-Arch CI
 
 on:
   push:
@@ -50,11 +50,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Xtensa
-  shell: bash
-  run: |
-    . $IDF_PATH/export.sh
-    make -C arch/Xtensa
-
+        shell: bash
+        run: |
           . $IDF_PATH/export.sh
           make -C arch/Xtensa
 
@@ -65,4 +62,3 @@ jobs:
           path: |
             arch/Xtensa/*.elf
             arch/Xtensa/*.bin
-
