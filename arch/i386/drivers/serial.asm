@@ -39,5 +39,3 @@ init_serial:
 
     RET
 
-.section .note.GNU-stack,"",@progbits
-
