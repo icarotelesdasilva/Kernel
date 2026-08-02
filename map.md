@@ -22,7 +22,8 @@
 │   │   │   ├── handler-irq0.c
 
 │   │   │   ├── handler_keyboard.c
-│   │   │   ├── handler-keyboard-isr.asm
+
+handler-keyboard-isr.asm
 │   │   │   ├── idt.asm
 
 │   │   │   ├── idt.c
