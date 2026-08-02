@@ -49,8 +49,12 @@ jobs:
       - name: Baixar codigo
         uses: actions/checkout@v4
 
-      - name: Compilar Xtensa
-        run: |
+      - name: Build Xtensa
+  shell: bash
+  run: |
+    . $IDF_PATH/export.sh
+    make -C arch/Xtensa
+
           . $IDF_PATH/export.sh
           make -C arch/Xtensa
 
