@@ -14,3 +14,5 @@ MOV ax, 0x10
     .reload_cs:
     RET
     
+section .note.GNU-stack noalloc noexec nowrite progbits
+
