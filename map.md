@@ -1,4 +1,3 @@
-.
 
 ├── arch
 
@@ -20,6 +19,10 @@
 
 │   │   │   ├── gdt_flush.s
 
+│   │   │   ├── handler-irq0.c
+
+│   │   │   ├── handler_keyboard.c
+│   │   │   ├── handler-keyboard-isr.asm
 │   │   │   ├── idt.asm
 
 │   │   │   ├── idt.c
@@ -28,7 +31,12 @@
 
 │   │   ├── drivers
 
+
 │   │   │   ├── kernel_panic.c
+│   │   │   ├── serial.asm
+
+
+│   │   │   ├── serial_print.c
 
 │   │   │   └── vga.c
 
@@ -61,6 +69,7 @@
 │   └── Xtensa
 
 │       ├── linker.ld
+
 │       ├── makefile
 
 │       └── start.S
@@ -71,10 +80,15 @@
 
 ├── LICENSE
 
+├── logs_completos.txt
+
 ├── makefile
 
 ├── map.md
 
 └── README.md
 
-11 directories, 29 files
+
+
+
+

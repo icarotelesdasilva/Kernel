@@ -6,37 +6,36 @@ global init_serial
 init_serial:
 
     ; clean interrupts
-    MOV dx, COM1_PORT + 1
-    MOV al, 0x00
-    OUT dx, al
+    mov dx, COM1_PORT + 1
+    mov al, 0x00
+    out dx, al
 
     ; enable dlab
-    MOV dx, COM1_PORT + 3
-    MOV al, 0x80
-    OUT dx, al
+    mov dx, COM1_PORT + 3
+    mov al, 0x80
+    out dx, al
 
     ; define speed 115200
-    MOV dx, COM1_PORT + 0
-    MOV al, 0x01
-    OUT dx, al
-    MOV dx, COM1_PORT + 1
-    MOV al, 0x00
-    OUT dx, al
+    mov dx, COM1_PORT + 0
+    mov al, 0x01
+    out dx, al
+    mov dx, COM1_PORT + 1
+    mov al, 0x00
+    out dx, al
 
     ; LCR
-    MOV dx, COM1_PORT + 3
-    MOV al, 0x03
-    OUT dx, al
+    mov dx, COM1_PORT + 3
+    mov al, 0x03
+    out dx, al
 
     ; FIFO
-    MOV dx, COM1_PORT + 2
-    MOV al, 0x03
-    OUT dx, al
+    mov dx, COM1_PORT + 2
+    mov al, 0x03
+    out dx, al
 
     ; MCR
-    MOV dx, COM1_PORT + 4
-    MOV al, 0x08
-    OUT dx, al
+    mov dx, COM1_PORT + 4
+    mov al, 0x08
+    out dx, al
 
-    RET
-
+    ret

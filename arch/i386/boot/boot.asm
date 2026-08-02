@@ -25,17 +25,15 @@ extern kmain
 
 _start:
 
-MOV esp, stack_top
-PUSH ebx
-PUSH eax
-CALL kmain
-CLI
+mov esp, stack_top
+push ebx
+push eax
+call kmain
+cli
 
 .hang:
 
-HLT 
+hlt 
 
-JMP .hang 
-
-
+jmp .hang 
 

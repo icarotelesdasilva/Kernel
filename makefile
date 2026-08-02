@@ -6,7 +6,7 @@ CC = gcc
 LD = ld -m elf_i386
 CONVERT = convert
 CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic -Iinclude
-OBJ = arch/i386/boot/boot.o \
+OBJ=arch/i386/boot/boot.o \
 	arch/i386/drivers/vga.o \
 	arch/i386/drivers/kernel_panic.o \
 	arch/i386/drivers/serial.o \
@@ -16,11 +16,13 @@ OBJ = arch/i386/boot/boot.o \
 	arch/i386/cpu/idt_load.o \
 	arch/i386/interrupts/interrupt.o \
 	arch/i386/interrupts/interrupt_asm.o \
-arch/i386/drivers/serial_print.o \
-arch/i386/pmm/pmm.o \
-arch/i386/interrupts/pic.o \
-arch/i386/cpu/handler-irq0.o \
-arch/i386/boot/multiboot.o \
+	arch/i386/drivers/serial_print.o \
+	arch/i386/cpu/handler_keyboard.o \
+	arch/i386/cpu/handler-keyboard-isr.o \
+	arch/i386/pmm/pmm.o \
+	arch/i386/interrupts/pic.o \
+	arch/i386/cpu/handler-irq0.o \
+	arch/i386/boot/multiboot.o \
 	arch/i386/kernel/kernel.o
 
 %.o: %.c
@@ -41,10 +43,13 @@ arch/i386/cpu/idt_load.o: arch/i386/cpu/idt.asm
 arch/i386/drivers/serial.o: arch/i386/drivers/serial.asm
 	$(ASM) -f elf32 $< -o $@
 
-vmicaro: $(OBJ)
+arch/i386/cpu/handler-keyboard-isr.o:arch/i386/cpu/handler-keyboard-isr.asm
+	$(ASM) -f elf32 $< -o $@
+
+vmicaro:$(OBJ)
 	$(LD) -T arch/i386/linker.ld $(OBJ) -o vmicaro
 
-all: vmicaro
+all:vmicaro
 	mkdir -p isodir/boot/grub
 	cp vmicaro isodir/boot/vmicaro
 	cp grub/grub.cfg isodir/boot/grub/grub.cfg
@@ -54,12 +59,12 @@ clean:
 	rm -f $(OBJ) vmicaro vmicaro.iso
 	rm -rf isodir/
 
-dev: vmicaro.iso
+dev:vmicaro.iso
 	qemu-system-x86_64 \
 		-cdrom vmicaro.iso \
 		-d int,cpu_reset,guest_errors \
 		-D logs_completos.txt \
 		-no-reboot -no-shutdown
 
-run: vmicaro.iso
+run:vmicaro.iso
 	qemu-system-x86_64 -cdrom vmicaro.iso

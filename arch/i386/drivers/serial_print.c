@@ -15,12 +15,6 @@ int linhan  = 0;
 
 #define COM1_PORT 0x3F8
 
-static inline uint8_t inb(uint16_t port) {
-    uint8_t val;
-    asm volatile ("inb %1, %0" : "=a"(val) : "Nd"(port));
-    return val;
-}
-
 static int serial_ready(void) {
     return inb(COM1_PORT + 5) & 0x20;
 }

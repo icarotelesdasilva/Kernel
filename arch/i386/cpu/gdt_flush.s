@@ -2,19 +2,17 @@ global gdt_flush
 extern gdt_ptr
 
 gdt_flush:
-    MOV eax, [esp + 4]
+    mov eax, [esp + 4]
     lgdt [eax]
 
-    MOV ax, 0x10
-    MOV ds, ax
-    MOV es, ax
-    MOV fs, ax
-    MOV gs, ax
-    MOV ss, ax
+    mov ax, 0x10
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
 
-    JMP 0x08:.flush
+    jmp 0x08:.flush
 
 .flush:
-    RET
-
-
+    ret
