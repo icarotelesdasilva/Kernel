@@ -24,7 +24,8 @@
 │   │   │   ├── handler_keyboard.c
 
 handler-keyboard-isr.asm
-│   │   │   ├── idt.asm
+│   │   │   
+├── idt.asm
 
 │   │   │   ├── idt.c
 
@@ -34,7 +35,9 @@ handler-keyboard-isr.asm
 
 
 │   │   │   ├── kernel_panic.c
-│   │   │   ├── serial.asm
+│   │   │   
+
+├── serial.asm
 
 
 │   │   │   ├── serial_print.c
