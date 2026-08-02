@@ -25,7 +25,7 @@ init_serial:
     ; LCR
     MOV dx, COM1_PORT + 3
     MOV al, 0x03
-    MOV dx, al
+    OUT dx, al
 
     ; FIFO
     MOV dx, COM1_PORT + 2
