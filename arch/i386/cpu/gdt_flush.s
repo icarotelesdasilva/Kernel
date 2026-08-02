@@ -17,4 +17,4 @@ gdt_flush:
 .flush:
     RET
 
-section .note.GNU-stack noalloc noexec nowrite progbits
+
