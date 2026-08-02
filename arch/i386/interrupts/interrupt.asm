@@ -41,3 +41,5 @@ isr_common_stub:
     add esp, 8          
     STI  
 IRET
+
+section .note.GNU-stack noalloc noexec nowrite progbits
