@@ -49,7 +49,7 @@ void kmain(uint32_t magic, uint32_t mb_addr) {
 
 while(1) {
 
- asm volatile("hlt");
+ asm volatile("sti; hlt"); // NOT WEAK UP!
 
 }
 
