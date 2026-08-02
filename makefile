@@ -16,6 +16,7 @@ OBJ = arch/i386/boot/boot.o \
 	arch/i386/cpu/idt_load.o \
 	arch/i386/interrupts/interrupt.o \
 	arch/i386/interrupts/interrupt_asm.o \
+arch/i386/drivers/serial_print.o \
 arch/i386/pmm/pmm.o \
 arch/i386/interrupts/pic.o \
 arch/i386/cpu/handler-irq0.o \

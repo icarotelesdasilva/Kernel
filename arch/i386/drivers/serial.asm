@@ -4,6 +4,7 @@ COM1_PORT equ 0x3F8
 
 global init_serial
 init_serial:
+
     ; clean interrupts
     MOV dx, COM1_PORT + 1
     MOV al, 0x00
