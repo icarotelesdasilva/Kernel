@@ -1,4 +1,4 @@
-Name: Kernel Multi-Arch CI
+name: Kernel Multi-Arch CI
 
 on:
   push:
