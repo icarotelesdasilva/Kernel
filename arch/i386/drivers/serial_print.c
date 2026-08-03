@@ -1,7 +1,7 @@
 extern void init_serial(void);
 
 /*
- * Kernel-Ícaro (vmicaro)
+ * Kernel 
  * Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
 */
 
