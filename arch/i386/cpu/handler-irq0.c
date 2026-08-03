@@ -3,7 +3,6 @@
 void irq0_handler(void) {
 
 /* 
- * Emergency Update:
  * This handler was placed for when it enabled the interruptions 
  * IRQ 0 sent it to IDT, but IDT did not know what to do.
  */
