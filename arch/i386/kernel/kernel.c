@@ -1,5 +1,3 @@
-#include "../pmm/pmm.h"
-#include "../boot/multiboot.h"
 #include "../interrupts/io.h"
 #include "../interrupts/pic.h"
 extern void init_serial(void);
@@ -18,17 +16,10 @@ extern void keyboard_handler(void);
 
 
 
-void kmain(uint32_t magic, uint32_t mb_addr) {
-    if (magic != 0x2BADB002) {
-        kernel_panic("magic nao foi carregado pelo fato de estar errado");
-        return;
-    }
-
+void kmain() {
 
     init_gdt();
     idt_install();
-    multiboot_init(mb_addr);
-    pmm_init(mb_addr);
     pic_remap(0x20, 0x28); // inicializing all  services
     init_serial();
     
