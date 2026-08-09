@@ -57,6 +57,6 @@ __attribute__((noreturn)) void kernel_panic(const char *str) {
     }
 
     while (1) {
-        __asm__ __volatile__("hlt");
+        __asm__ __volatile__("cli; hlt");
     }
 }

@@ -4,6 +4,7 @@
 extern void serial_print(const char *str);
 extern void serial_print_hex(uint32_t n);
 #define PAGE_SIZE 4096
+
 static uint8_t* pmm_bitmap;
 static uint32_t total_pages;
 
