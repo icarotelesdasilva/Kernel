@@ -21,6 +21,7 @@ OBJ=arch/i386/boot/boot.o \
 	arch/i386/cpu/handler-keyboard-isr.o \
 	arch/i386/interrupts/pic.o \
 	arch/i386/cpu/handler-irq0.o \
+	arch/i386/kernel/pmm/pmm.o \
 	arch/i386/kernel/kernel.o
 
 %.o: %.c

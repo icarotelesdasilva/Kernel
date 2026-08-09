@@ -36,3 +36,18 @@ void serial_print(const char *str) {
 
 static int serial_coluna = 0;
 static int serial_linha = 0;
+
+void serial_print_hex(uint32_t n) {
+    char hex_chars[] = "0123456789ABCDEF";
+    char buffer[11];
+    buffer[0] = '0';
+    buffer[1] = 'x';
+    buffer[10] = '\0';
+
+    for (int i = 7; i >= 0; i--) {
+        buffer[2 + i] = hex_chars[n & 0xF];
+        n >>= 4;
+    }
+
+    serial_print(buffer);
+}
