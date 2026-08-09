@@ -1,9 +1,11 @@
 #ifndef PMM_H
 #define PMM_H
+#define TOTAL_SIZE 4096
+#define TOTAL_PAGES 1024
 
 #include <stdint.h>
 #include "../../boot/multiboot.h"
 
-void pmm_init(multiboot_info_t* mbd);
-uint32_t pmm_alock_page(void);
+uint32_t pmm_allock();
+
 #endif
