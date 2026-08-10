@@ -1,6 +1,7 @@
 #include "../interrupts/io.h"
 #include "../interrupts/pic.h"
 #include "../boot/multiboot.h"
+#include "pmm/pmm.h"
 extern uint32_t pmm_allock();
 extern void pmm_free_page(uint32_t paddr);
 extern void init_serial(void);
@@ -25,6 +26,7 @@ void kmain(uint32_t magic, uint32_t addr) {
     idt_install();
     pic_remap(0x20, 0x28); 
     init_serial();
+    pmm_init();
     
 uint32_t pagina1 = pmm_allock();
     serial_print("Page allocated in: 0x");

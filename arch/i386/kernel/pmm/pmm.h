@@ -7,5 +7,7 @@
 #include "../../boot/multiboot.h"
 
 uint32_t pmm_allock();
+void pmm_init();
+void pmm_free_page(uint32_t paddr);
 
 #endif
