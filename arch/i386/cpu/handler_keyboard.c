@@ -19,7 +19,6 @@ if (!(scancode & 0x80)) {
                 break;
             case 0x2C: 
 break;
-    pic_send_eoi(1); // EOI
 }
 }
   pic_send_eoi(1); // EOI
