@@ -26,9 +26,13 @@ extern kmain
 _start:
 
 mov esp, stack_top
+xor ebp, ebp
 push ebx
 push eax
+cmp eax, 0x2BADB002
+jne .hang
 call kmain
+add esp, 8
 cli
 
 .hang:
