@@ -1,6 +1,7 @@
 #include "idt.h"
 
 // preenche struct etc amanha
+extern void isr0(void);
 extern void keyboard_isr(void);
 extern void irq0_handler_stub();
 struct idt_entry idt[256];
