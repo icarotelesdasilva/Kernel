@@ -49,25 +49,27 @@ arch/i386/drivers/serial.o: arch/i386/drivers/serial.asm
 arch/i386/cpu/handler-keyboard-isr.o:arch/i386/cpu/handler-keyboard-isr.asm
 	$(ASM) -f elf32 $< -o $@
 
-vmicaro:$(OBJ)
+vmicaro: $(OBJ)
 	$(LD) -T arch/i386/linker.ld $(OBJ) -o vmicaro
 
-all:vmicaro
+vmicaro.iso: vmicaro
 	mkdir -p isodir/boot/grub
 	cp vmicaro isodir/boot/vmicaro
 	cp grub/grub.cfg isodir/boot/grub/grub.cfg
-	$(GRUB_MKRESCUE) --directory=$(GRUB_MODULES) -o vmicaro.iso isodir/
+	grub-mkrescue -o vmicaro.iso isodir/
+
+all: vmicaro.iso
 
 clean:
 	rm -f $(OBJ) vmicaro vmicaro.iso
 	rm -rf isodir/
 
-dev:vmicaro.iso
+dev: vmicaro.iso
 	qemu-system-x86_64 \
 		-cdrom vmicaro.iso \
 		-d int,cpu_reset,guest_errors \
 		-D logs_completos.txt \
 		-no-reboot -no-shutdown
 
-run:vmicaro.iso
+run: vmicaro.iso
 	qemu-system-x86_64 -cdrom vmicaro.iso
