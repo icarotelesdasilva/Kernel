@@ -26,6 +26,7 @@ OBJ=arch/i386/boot/boot.o \
 	arch/i386/cpu/handler-irq0.o \
 	arch/i386/kernel/pmm/pmm.o \
 	arch/i386/kernel/memory/memory.o \
+	arch/i386/kernel/vmm/vmm.o \
 	arch/i386/kernel/kernel.o
 
 %.o: %.c

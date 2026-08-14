@@ -17,7 +17,7 @@ uint32_t pmm_alloc_page(void) {
     return 0; 
 }
 
-void pmm_free_page(uint32_t physical_addr) {
+void pmm_free_page(uintptr_t physical_addr) {
     uint32_t page_index = physical_addr / 4096;
     if (page_index < pmm_max_pages) {
         pmm_bitmap[page_index] = 0; 

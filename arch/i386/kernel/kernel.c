@@ -2,7 +2,7 @@
 #include "../interrupts/pic.h"
 #include "../boot/multiboot.h"
 #include "pmm/pmm.h"
-
+#include "vmm/vmm.h"
 extern uint32_t pmm_alloc_page(void);
 extern void pmm_free_page(uint32_t paddr);
 extern void init_memory_system(uint32_t multiboot_addr); 
@@ -43,7 +43,7 @@ void kmain(uint32_t magic, uint32_t addr) {
     serial_print("New Allocated Page (must repurpose): 0x");
     serial_print_hex(pagina3);
     serial_print("\n"); 
-    
+    vmm_init(); 
     serial_print("Hello from serial!\n");
     vga_print("Hello, Kernel!");
 
