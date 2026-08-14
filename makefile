@@ -4,6 +4,9 @@
 ASM = nasm
 CC = gcc
 LD = ld -m elf_i386
+GRUB_DIR = $(CURDIR)/tools
+GRUB_MKRESCUE = $(GRUB_DIR)/bin/grub-mkrescue
+GRUB_MODULES = $(GRUB_DIR)/lib/grub/i386-pc
 CONVERT = convert
 CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic -Iinclude
 OBJ=arch/i386/boot/boot.o \
@@ -53,7 +56,7 @@ all:vmicaro
 	mkdir -p isodir/boot/grub
 	cp vmicaro isodir/boot/vmicaro
 	cp grub/grub.cfg isodir/boot/grub/grub.cfg
-	grub-mkrescue -o vmicaro.iso isodir/
+	$(GRUB_MKRESCUE) --directory=$(GRUB_MODULES) -o vmicaro.iso isodir/
 
 clean:
 	rm -f $(OBJ) vmicaro vmicaro.iso
