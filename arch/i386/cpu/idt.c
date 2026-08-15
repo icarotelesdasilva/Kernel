@@ -23,7 +23,7 @@ void idt_install(void) {
 	idtp.limit = (sizeof(struct idt_entry) * 256) - 1;
 	idtp.base = (uint32_t)&idt;
 
-  for (int i = 0; i < 256; i++) {
+  for (int i = 0; i < 256; i++) { // tire os handlers do for pelo amor de deus :(
         idt_set_gate(i, 0, 0, 0);
 idt_set_gate(0,  (uint32_t)isr0,  0x08, 0x8E);
 	idt_set_gate(32, (uint32_t)irq0_handler_stub, 0x08, 0x8E);
