@@ -21,7 +21,8 @@ void kmain(uint32_t magic, uint32_t addr) {
        if (magic != 0x2BADB002) {
         kernel_panic("My magic number is wrong!");
     }
- 
+
+    
     init_gdt();
     idt_install();
     pic_remap(0x20, 0x28); 
