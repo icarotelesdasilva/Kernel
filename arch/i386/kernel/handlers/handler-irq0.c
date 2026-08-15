@@ -1,5 +1,6 @@
-#include "../interrupts/io.h"
-#include "../interrupts/pic.h"
+#include "../../interrupts/pic.h"
+#include "../../interrupts/io.h"
+
 void irq0_handler(void) {
 
 /* 

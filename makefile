@@ -9,45 +9,40 @@ GRUB_MKRESCUE = $(GRUB_DIR)/bin/grub-mkrescue
 GRUB_MODULES = $(GRUB_DIR)/lib/grub/i386-pc
 CONVERT = convert
 CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic -Iinclude
+
 OBJ=arch/i386/boot/boot.o \
-	arch/i386/drivers/vga.o \
-	arch/i386/drivers/kernel_panic.o \
-	arch/i386/drivers/serial.o \
-	arch/i386/cpu/gdt.o \
-	arch/i386/cpu/gdt_flush.o \
-	arch/i386/cpu/idt.o \
-	arch/i386/cpu/idt_load.o \
-	arch/i386/interrupts/interrupt.o \
-	arch/i386/interrupts/interrupt_asm.o \
-	arch/i386/drivers/serial_print.o \
-	arch/i386/cpu/handler_keyboard.o \
-	arch/i386/cpu/handler-keyboard-isr.o \
-	arch/i386/interrupts/pic.o \
-	arch/i386/cpu/handler-irq0.o \
-	arch/i386/kernel/pmm/pmm.o \
-	arch/i386/kernel/memory/memory.o \
-	arch/i386/kernel/vmm/vmm.o \
-	arch/i386/kernel/kernel.o
+    arch/i386/cpu/gdt.o \
+    arch/i386/cpu/gdt_flush.o \
+    arch/i386/cpu/idt.o \
+    arch/i386/cpu/idt_load.o \
+    arch/i386/drivers/kernel_panic.o \
+    arch/i386/drivers/serial.o \
+    arch/i386/drivers/serial_print.o \
+    arch/i386/drivers/vga.o \
+    arch/i386/interrupts/pic.o \
+    arch/i386/kernel/handlers/interrupt.o \
+    arch/i386/kernel/handlers/interrupt_asm.o \
+    arch/i386/kernel/handlers/handler-irq0.o \
+    arch/i386/kernel/handlers/handler_keyboard.o \
+    arch/i386/kernel/handlers/handler-keyboard-isr.o \
+    arch/i386/kernel/kernel.o \
+    arch/i386/kernel/memory/memory.o \
+    arch/i386/kernel/pmm/pmm.o \
+    arch/i386/kernel/vmm/vmm.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-arch/i386/interrupts/interrupt_asm.o: arch/i386/interrupts/interrupt.asm
+%.o: %.asm
 	$(ASM) -f elf32 $< -o $@
 
-arch/i386/boot/boot.o: arch/i386/boot/boot.asm
-	$(ASM) -f elf32 $< -o $@
-
-arch/i386/cpu/gdt_flush.o: arch/i386/cpu/gdt_flush.s
+%.o: %.s
 	$(ASM) -f elf32 $< -o $@
 
 arch/i386/cpu/idt_load.o: arch/i386/cpu/idt.asm
 	$(ASM) -f elf32 $< -o $@
 
-arch/i386/drivers/serial.o: arch/i386/drivers/serial.asm
-	$(ASM) -f elf32 $< -o $@
-
-arch/i386/cpu/handler-keyboard-isr.o:arch/i386/cpu/handler-keyboard-isr.asm
+arch/i386/kernel/handlers/interrupt_asm.o: arch/i386/kernel/handlers/interrupt.asm
 	$(ASM) -f elf32 $< -o $@
 
 vmicaro: $(OBJ)
