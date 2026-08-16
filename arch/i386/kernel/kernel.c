@@ -30,7 +30,6 @@ void kmain(uint32_t magic, uint32_t addr) {
     pic_remap(0x20, 0x28); 
     init_serial();
     
-   
     init_memory_system(addr);
     
     uint32_t pagina1 = pmm_alloc_page();
