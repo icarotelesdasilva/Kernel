@@ -21,9 +21,9 @@ void idt_set_gate(uint8_t num, uint32_t base, uint16_t sel, uint8_t flags) {
 void idt_install(void) {
 
 	idtp.limit = (sizeof(struct idt_entry) * 256) - 1;
-	idtp.base = (uint32_t)&idt;
+	idtp.base = (uint32_t)idt;
 
-  for (int i = 0; i < 256; i++) { // tire os handlers do for pelo amor de deus :(
+  for (int i = 0; i < 256; i++) { 
         idt_set_gate(i, 0, 0, 0);
  }
 	

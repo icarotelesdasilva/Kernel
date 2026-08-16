@@ -1,5 +1,5 @@
 global idt_load
-extern idtp
+extern idtp ; lembrar de chamar handlers novos aqui
 global irq0_handler_stub
 extern irq0_handler 
 
