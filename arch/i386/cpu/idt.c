@@ -25,10 +25,11 @@ void idt_install(void) {
 
   for (int i = 0; i < 256; i++) { // tire os handlers do for pelo amor de deus :(
         idt_set_gate(i, 0, 0, 0);
-idt_set_gate(0,  (uint32_t)isr0,  0x08, 0x8E);
+      }
+	idt_set_gate(0,  (uint32_t)isr0,  0x08, 0x8E);
 	idt_set_gate(32, (uint32_t)irq0_handler_stub, 0x08, 0x8E);
 	idt_set_gate(33, (uint32_t)keyboard_isr, 0x08, 0x8E);
 
     idt_load();
 }
-}
+
