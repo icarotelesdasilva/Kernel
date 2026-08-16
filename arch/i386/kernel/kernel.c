@@ -26,8 +26,8 @@ void kmain(uint32_t magic, uint32_t addr) {
         kernel_panic("My magic number is wrong!");
     }
     init_gdt();
-    idt_install();
     pic_remap(0x20, 0x28); 
+    idt_install();
     init_serial();
     
     init_memory_system(addr);

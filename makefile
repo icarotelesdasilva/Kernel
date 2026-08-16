@@ -19,12 +19,12 @@ OBJ=arch/i386/boot/boot.o \
     arch/i386/drivers/serial.o \
     arch/i386/drivers/serial_print.o \
     arch/i386/drivers/vga.o \
+    arch/i386/kernel/handlers/handler_0x00.o \
+    arch/i386/kernel/handlers/handler_irq0.o \
+    arch/i386/kernel/handlers/handler_0x08.o \
+    arch/i386/kernel/handlers/keyboard_handler.o \
+	arch/i386/kernel/handlers/handler_central.o \
     arch/i386/interrupts/pic.o \
-    arch/i386/kernel/handlers/interrupt.o \
-    arch/i386/kernel/handlers/interrupt_asm.o \
-    arch/i386/kernel/handlers/handler-irq0.o \
-    arch/i386/kernel/handlers/handler_keyboard.o \
-    arch/i386/kernel/handlers/handler-keyboard-isr.o \
     arch/i386/kernel/kernel.o \
     arch/i386/kernel/memory/memory.o \
     arch/i386/kernel/pmm/pmm.o \
