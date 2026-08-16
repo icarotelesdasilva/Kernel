@@ -3,8 +3,8 @@
 #include "../boot/multiboot.h"
 #include "pmm/pmm.h"
 #include "vmm/vmm.h"
-extern uint32_t pmm_alloc_page(void);
-extern void pmm_free_page(uint32_t paddr);
+extern uintptr_t pmm_alloc_page(void);
+extern void pmm_free_page(uintptr_t paddr);
 extern void init_memory_system(uint32_t multiboot_addr); 
 extern void init_serial(void);
 void init_gdt(void);
@@ -17,12 +17,14 @@ extern void handler_keyboard(void);
 extern void keyboard_handler(void);
 extern void serial_print_hex(uint32_t n);
 
+
+
+
+
 void kmain(uint32_t magic, uint32_t addr) {
        if (magic != 0x2BADB002) {
         kernel_panic("My magic number is wrong!");
     }
-
-    
     init_gdt();
     idt_install();
     pic_remap(0x20, 0x28); 
@@ -51,6 +53,7 @@ void kmain(uint32_t magic, uint32_t addr) {
     vmm_init(); 
     serial_print("Hello from serial!\n");
     vga_print("Hello, Kernel!");
+
 
     while(1) {
         asm volatile("sti; hlt");
