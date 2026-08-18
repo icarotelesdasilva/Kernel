@@ -13,6 +13,14 @@ Quick Start
 * Start the ISO: make run
 * Run in QEMU & generate logs: make dev
 
+
+
+Features 
+--------
+
+Interrupt management, dynamic memory management, paging among many other things (It wouldn't fit here).
+
+
 Requirements
 ------------
 
