@@ -21,6 +21,12 @@ Features
 Interrupt management, dynamic memory management, paging among many other things (It wouldn't fit here).
 
 
+
+Segurity
+--------
+The kernel is frequently tested on actual hardware and in emulators before being released; issues are diagnosed, and everything undergoes multiple rounds of testing.
+
+
 Requirements
 ------------
 
