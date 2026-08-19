@@ -3,6 +3,12 @@
 #include "../boot/multiboot.h"
 #include "pmm/pmm.h"
 #include "vmm/vmm.h"
+extern void irq12_stub(void);
+void mouse_register_interrupt(void);
+void ps2_mouse_init(int screen_width, int screen_height);
+void unmask_mouse_irq(void);
+void ps2_mouse_handle_interrupt(int screen_width, int screen_height);
+extern void ps2_mouse_get_state(void);
 extern uintptr_t pmm_alloc_page(void);
 extern void pmm_free_page(uintptr_t paddr);
 extern void init_memory_system(uint32_t multiboot_addr); 
@@ -28,6 +34,10 @@ void kmain(uint32_t magic, uint32_t addr) {
     init_gdt();
     pic_remap(0x20, 0x28); 
     idt_install();
+    mouse_register_interrupt();
+    ps2_mouse_init(800, 600);
+    unmask_mouse_irq();
+    
     init_serial();
     
     init_memory_system(addr);

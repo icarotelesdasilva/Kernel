@@ -1,6 +1,8 @@
 # Kernel-Ícaro (vmicaro)
 # Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
+
 .PHONY: all run dev clean
+
 ASM = nasm
 CC = gcc
 LD = ld -m elf_i386
@@ -23,7 +25,9 @@ OBJ=arch/i386/boot/boot.o \
     arch/i386/kernel/handlers/handler_irq0.o \
     arch/i386/kernel/handlers/handler_0x08.o \
     arch/i386/kernel/handlers/keyboard_handler.o \
-	arch/i386/kernel/handlers/handler_central.o \
+    arch/i386/kernel/handlers/handler_central.o \
+    arch/i386/kernel/handlers/mouse-irq12.o \
+    arch/i386/drivers/mouse.o \
     arch/i386/interrupts/pic.o \
     arch/i386/kernel/kernel.o \
     arch/i386/kernel/memory/memory.o \
