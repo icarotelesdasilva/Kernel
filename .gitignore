@@ -21,3 +21,16 @@ io.o
 interrupt_asm.o
 handler-irq0.o
 serial_print.o
+idt_load.o⁠
+ ⁠kernel_panic.o⁠
+ ⁠mouse.o⁠
+ ⁠serial.o⁠
+ ⁠vga.o⁠
+ ⁠pic.o⁠
+ ⁠handler_0x00.o⁠
+ ⁠handler_0x08.o⁠
+ ⁠handler_central.o⁠
+ ⁠handler_irq0.o⁠
+ ⁠keyboard_handler.o⁠
+ ⁠mouse-irq12.o⁠
+
