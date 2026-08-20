@@ -24,12 +24,12 @@ typedef struct {
 void handler_syscall(registers_t *regs) {
     switch (regs->eax) {
         case 1:
-            serial_print("syslog: recebi syscall 1\n");
-            regs->eax = 0; // Sucesso
+            serial_print("syslog: 1\n");
+            regs->eax = 0; 
             break;
         default:
             serial_print("syslog: syscall desconhecida\n");
-            regs->eax = (uint32_t)-1; // Erro: syscall inválida
+            regs->eax = (uint32_t)-1; 
             break;
     }
 }
