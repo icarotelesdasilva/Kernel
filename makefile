@@ -31,6 +31,8 @@ OBJ=arch/i386/boot/boot.o \
     arch/i386/interrupts/pic.o \
     arch/i386/kernel/kernel.o \
     arch/i386/kernel/memory/memory.o \
+    arch/i386/kernel/handlers/syscall.o \
+	arch/i386/kernel/handlers/syscall_asm.o \
     arch/i386/kernel/pmm/pmm.o \
     arch/i386/kernel/vmm/vmm.o
 
@@ -47,6 +49,9 @@ arch/i386/cpu/idt_load.o: arch/i386/cpu/idt.asm
 	$(ASM) -f elf32 $< -o $@
 
 arch/i386/kernel/handlers/interrupt_asm.o: arch/i386/kernel/handlers/interrupt.asm
+	$(ASM) -f elf32 $< -o $@
+
+arch/i386/kernel/handlers/syscall_asm.o: arch/i386/kernel/handlers/syscall.asm
 	$(ASM) -f elf32 $< -o $@
 
 vmicaro: $(OBJ)
