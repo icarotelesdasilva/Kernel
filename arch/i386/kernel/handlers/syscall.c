@@ -28,7 +28,7 @@ void handler_syscall(registers_t *regs) {
             regs->eax = 0; 
             break;
         default:
-            serial_print("syslog: syscall desconhecida\n");
+            serial_print("syslog: syscall erorr\n");
             regs->eax = (uint32_t)-1; 
             break;
     }
