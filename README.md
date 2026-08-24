@@ -1,5 +1,5 @@
 ```⁠
-Hobby Kernel
+loumain
 ============
 
 A hobby operating system kernel built entirely from scratch by hand. 
@@ -24,7 +24,7 @@ Interrupt management, dynamic memory management, paging among many other things 
 
 Segurity
 --------
-The kernel is frequently tested on actual hardware and in emulators before being released; issues are diagnosed, and everything undergoes multiple rounds of testing.
+The loumain is frequently tested on actual hardware and in emulators before being released; issues are diagnosed, and everything undergoes multiple rounds of testing.
 
 
 Requirements
