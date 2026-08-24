@@ -24,7 +24,7 @@ global _start
 extern kmain
 
 _start:
-
+cld
 mov esp, stack_top
 xor ebp, ebp
 push ebx
