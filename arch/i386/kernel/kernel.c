@@ -22,6 +22,7 @@ extern void idt_install(void);
 extern void handler_keyboard(void);
 extern void keyboard_handler(void);
 extern void serial_print_hex(uint32_t n);
+void init_pit(uint32_t frequency);
 
 
 
@@ -34,6 +35,7 @@ void kmain(uint32_t magic, uint32_t addr) {
     init_gdt();
     pic_remap(0x20, 0x28); 
     idt_install();
+    init_pit(1000);
     mouse_register_interrupt();
     ps2_mouse_init(800, 600);
     unmask_mouse_irq();
