@@ -35,6 +35,8 @@ OBJ=arch/i386/boot/boot.o \
 	arch/i386/kernel/handlers/syscall_asm.o \
     arch/i386/kernel/pmm/pmm.o \
     arch/i386/kernel/timer/pit.o \
+    arch/i386/kernel/process/process.o \
+    arch/i386/kernel/process/process_as.o \
     arch/i386/kernel/vmm/vmm.o
 
 %.o: %.c

@@ -14,7 +14,9 @@ typedef struct {
     uintptr_t esp; 
     uint32_t state;
 
-}process;
+}task_t;
+extern task_t *current;
+extern task_t *next;
 
 #endif
 

@@ -8,20 +8,25 @@ global isr0
 extern isr_handler
 global irq0_isr
 extern irq0_handler
+extern current
+extern next
 
 irq0_isr:
-pusha              
-push ds
-push es
-mov ax, 0x10      
-mov ds, ax
-mov es, ax
-call irq0_handler   
-pop es
-pop ds
-popa                
-iret                
-
+    pusha
+    push ds
+    push es
+    mov eax, [current]
+    mov [eax + 4], esp
+    mov ax, 0x10
+    mov ds, ax
+    mov es, ax
+    call irq0_handler
+    mov eax, [next]
+    mov esp, [eax + 4]
+    pop es
+    pop ds
+    popa
+    iret
 
 keyboard_isr:
     pushad
