@@ -1,5 +1,5 @@
 ```⁠
-loumain
+kernel
 ============
 
 A hobby operating system kernel built entirely from scratch by hand. 
