@@ -35,6 +35,10 @@ A Linux-based system (or a virtual machine running Linux) with:
 * NASM (Netwide Assembler)
 * QEMU & Make
 
+Authors
+-----
+Icaro Teles da Silva Ribeiro (@icarotelesdasilva)
+
 License
 -------
 
